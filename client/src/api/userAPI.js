@@ -5,7 +5,7 @@ userAPI.getUser=async(token,navigate)=>{
     {
         if(token)
         {
-            const result=await userAPI.get(`https://link-hub-server.vercel.app/api/v1/user`,{
+            const result=await userAPI.get(`/api/v1/user`,{
                 headers: {
                     Authorization:`Bearer ${token}`
                 }})
@@ -28,7 +28,7 @@ userAPI.updateUser=async({userData,token})=>{
     {
         if(token)
         {
-            const updatedData=await userAPI.patch("https://link-hub-server.vercel.app/api/v1/user",{updateData:userData},{
+            const updatedData=await userAPI.patch("/api/v1/user",{updateData:userData},{
                 headers: {
                     Authorization:`Bearer ${token}`
                 }})
@@ -48,7 +48,7 @@ userAPI.updateUser=async({userData,token})=>{
 userAPI.getAllUsers=async(token)=>{
     try
     {
-       const result= await userAPI.get("https://link-hub-server.vercel.app/api/v1/user/getAllUsers",{
+       const result= await userAPI.get("/api/v1/user/getAllUsers",{
         headers:{
             Authorization:`Bearer ${token}`
         }
@@ -63,7 +63,7 @@ userAPI.getAllUsers=async(token)=>{
 userAPI.followUser=async(followUserId,token)=>{
     try
     {
-       const result=await userAPI.patch("https://link-hub-server.vercel.app/api/v1/user/follow",{followUserId},{
+       const result=await userAPI.patch("/api/v1/user/follow",{followUserId},{
         headers:{
             Authorization:`Bearer ${token}`
         }
@@ -78,7 +78,7 @@ userAPI.followUser=async(followUserId,token)=>{
 userAPI.unFollowUser=async(followUserId,token)=>{
     try
     { 
-        const result=await userAPI.patch("https://link-hub-server.vercel.app/api/v1/user/unfollow",{followUserId},{
+        const result=await userAPI.patch("/api/v1/user/unfollow",{followUserId},{
             headers:{
                 Authorization:`Bearer ${token}`
             }

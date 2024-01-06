@@ -5,7 +5,7 @@ authAPI.login=async({userData})=>{
     try
     {
     
-       const result=await axios.post("https://link-hub-server.vercel.app/api/v1/auth/login",userData)
+       const result=await axios.post("/api/v1/auth/login",userData)
        document.cookie=`token=${result.data.token}`
        return result.data
     }   
@@ -17,7 +17,7 @@ authAPI.login=async({userData})=>{
 authAPI.register=async({userData})=>{
     try
     {
-       const result=await authAPI.post("https://link-hub-server.vercel.app/api/v1/auth/register",userData)
+       const result=await authAPI.post("/api/v1/auth/register",userData)
        document.cookie=`token=${result.data.token}`
        return result.data.userData
     }
@@ -29,7 +29,7 @@ authAPI.register=async({userData})=>{
 authAPI.logout=async(token)=>{
     try
     {
-      await authAPI.delete(`https://link-hub-server.vercel.app/api/v1/auth/logout`,{
+      await authAPI.delete(`/api/v1/auth/logout`,{
         headers:{   
             Authorization:`Bearer ${token}`
         }
