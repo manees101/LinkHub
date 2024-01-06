@@ -9,7 +9,7 @@ import userAPI from '../api/userAPI'
 import { useCookies } from 'react-cookie'
 import postAPI from '../api/postAPI'
 import { setPosts } from '../reducers/postReducer'
-import Loader from '../components/loader'
+import Loader from '../components/Loader'
 import { useNavigate } from 'react-router-dom'
 function Home() {
   const userData = useSelector(state => state.user.userData)

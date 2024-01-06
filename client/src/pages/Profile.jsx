@@ -10,7 +10,7 @@ import { useSelector,useDispatch } from 'react-redux'
 import userAPI from '../api/userAPI'
 import postAPI from '../api/postAPI'
 import { useCookies } from 'react-cookie'
-import Loader from '../components/loader'
+import Loader from '../components/Loader'
 import { useNavigate } from 'react-router-dom'
 function Profile() {
   const navigate=useNavigate()
