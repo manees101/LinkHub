@@ -3,7 +3,7 @@ const postAPI=axios.create()
 postAPI.createPost=async(data,token)=>{
     try
     {
-       return await postAPI.post("api/v1/post",data,{
+       return await postAPI.post("https://link-hub-server.vercel.app/api/v1/post",data,{
         headers:{
             Authorization:`Bearer ${token}`
         }
@@ -17,7 +17,7 @@ postAPI.createPost=async(data,token)=>{
 postAPI.getPosts=async(token)=>{
     try
     {
-        return await postAPI.get(`api/v1/post`,{
+        return await postAPI.get(`https://link-hub-server.vercel.app/api/v1/post`,{
             headers:{
                 Authorization:`Bearer ${token}`
             }
@@ -31,7 +31,7 @@ postAPI.getPosts=async(token)=>{
 postAPI.likePost=async(postId,userId,token)=>{
     try
     {
-       return await postAPI.patch(`api/v1/post/like/${postId}`,{userId},{
+       return await postAPI.patch(`https://link-hub-server.vercel.app/api/v1/post/like/${postId}`,{userId},{
         headers:{
             Authorization:`Bearer ${token}`
         }
