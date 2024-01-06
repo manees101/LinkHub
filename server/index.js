@@ -17,6 +17,9 @@ const Mongo_URI=process.env.MONGO_URI
 app.use(cookieParser())
 app.use(express.json())
 // app.use(morgan('combined'))
+app.get("/",(req,res)=>{
+  res.send("hellow world")
+})
 app.use("/api/v1/auth",authRouter)
 app.use("/api/v1/user",userRouter)
 app.use("/api/v1/post",postRouter)
