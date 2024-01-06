@@ -4,8 +4,8 @@ import {Client,Storage} from "appwrite"
 const client = new Client();
 
 client
-    .setEndpoint('https://cloud.appwrite.io/v1')
-    .setProject('659595434f9580f153b6');
+    .setEndpoint(import.meta.env.VITE_APPWRITE_URL)
+    .setProject(import.meta.env.VITE_APPWRITE_PROJECT_ID);
 
     const storage = new Storage(client);
 
@@ -14,7 +14,7 @@ imageAPI.uploadImage=async(image,fileName)=>{
     {
      console.log(fileName.length)
       const result= await storage.createFile(
-        '659596c882c74367b729',
+        import.meta.env.VITE_APPWRITE_BUCKET_ID,
         fileName,
         image
     );
@@ -30,7 +30,7 @@ imageAPI.getImage=async(imageName)=>{
     {
       console.log(imageName)
      const response= storage.getFilePreview(
-      '659596c882c74367b729',
+      import.meta.env.VITE_APPWRITE_BUCKET_ID,
       imageName.split(".")[0],
      )
     return response;
@@ -44,7 +44,7 @@ imageAPI.deleteImage=async(fileName)=>{
   try
   {
 
-    return await storage.deleteFile("659596c882c74367b729",fileName)
+    return await storage.deleteFile( import.meta.env.VITE_APPWRITE_BUCKET_ID,fileName)
   }
   catch(err)
   {
