@@ -15,7 +15,7 @@ const app=express()
 const PORT=process.env.PORT || 5000
 const Mongo_URI=process.env.MONGO_URI
 app.use(cors({
-  origin:["https://link-hub-theta.vercel.app"],
+  origin:["https://link-hub-theta.vercel.app/"],
   methods:["POST","GET"],
   credentials:true
 }))
