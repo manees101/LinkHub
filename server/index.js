@@ -18,7 +18,7 @@ app.use(cookieParser())
 app.use(express.json())
 // app.use(morgan('combined'))
 app.get("/",(req,res)=>{
-  res.send("hellow world")
+  res.json("hellow world")
 })
 app.use("/api/v1/auth",authRouter)
 app.use("/api/v1/user",userRouter)
