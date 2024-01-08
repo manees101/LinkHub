@@ -9,6 +9,7 @@ import userRouter from "./route/userRouter.js"
 import postRouter from "./route/postRouter.js"
 import imageRouter from "./route/imageRouter.js"
 import cookieParser from "cookie-parser"
+import chatRouter from "./route/chatRouter.js"
 import cors from "cors"
 import morgan from "morgan"
 const app=express()
@@ -24,6 +25,7 @@ app.use("/api/v1/auth",authRouter)
 app.use("/api/v1/user",userRouter)
 app.use("/api/v1/post",postRouter)
 app.use("/api/v1/image",imageRouter)
+app.use("/api/v1/chat",chatRouter)
 const start=async()=>{
    try
    {

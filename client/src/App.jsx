@@ -19,10 +19,10 @@ function App() {
       </div>
       <Routes>
         <Route path='/' element={Cookies.token ? <Navigate to="home" /> : <Navigate to="login" />} />
-        <Route path='home' element={Cookies.token ? <Home /> : <Navigate to="../login" />} />
-        <Route path="profile" element={Cookies.token ? <Profile /> : < Navigate to="../login" />} />
-        <Route path='login' element={Cookies.token ? <Navigate to="../home" /> : <Signin />} />
-        <Route path='register' element={<Signup />} />
+        <Route path='/home' element={Cookies.token ? <Home /> : <Navigate to="../login" />} />
+        <Route path="/profile" element={Cookies.token ? <Profile /> : < Navigate to="../login" />} />
+        <Route path='/login' element={Cookies.token ? <Navigate to="../home" /> : <Signin />} />
+        <Route path='/register' element={<Signup />} />
 
       </Routes>
     </div>
