@@ -32,7 +32,7 @@ const findChats=async(req,res)=>{
     {
         const chats=await Chats.findOne({
             members:{
-                $all:[req.params.senderId,req.params,recieverId]
+                $all:[req.params.senderId,req.params.recieverId]
             }
         })
         res.status(200).json({success:true,chats})
