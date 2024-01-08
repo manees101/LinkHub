@@ -10,6 +10,7 @@ import postRouter from "./route/postRouter.js"
 import imageRouter from "./route/imageRouter.js"
 import cookieParser from "cookie-parser"
 import chatRouter from "./route/chatRouter.js"
+import messageRouter from "./route/messageRouter.js"
 import cors from "cors"
 import morgan from "morgan"
 const app=express()
@@ -26,6 +27,7 @@ app.use("/api/v1/user",userRouter)
 app.use("/api/v1/post",postRouter)
 app.use("/api/v1/image",imageRouter)
 app.use("/api/v1/chat",chatRouter)
+app.use("/api/v1/message",messageRouter)
 const start=async()=>{
    try
    {
