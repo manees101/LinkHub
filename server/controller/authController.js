@@ -39,8 +39,7 @@ const register=async(req,res)=>{
 //Login user
 const login=async(req,res)=>{
        try{
-          const {userData}=req.query
-          const {username,password}=userData
+          const {username,password}=req.body
          if(username && password)
          {
             const user=await User.findOne({username})
@@ -54,17 +53,17 @@ const login=async(req,res)=>{
               }
             else
             {
-              res.status(401).json({success:false,msg:"Password does not match",data:{password,username}})
+              res.status(401).json({success:false,msg:"Password does not match"})
             }
             }
            else
            {
-              res.status(404).json({success:false,msg:"User not found",data:{...userData}})
+              res.status(404).json({success:false,msg:"User not found"})
            }
          }
          else
          {
-            res.status(400).json({success:false,msg:"Please provide both username and password",data:{...userData}})
+            res.status(400).json({success:false,msg:"Please provide both username and password"})
          }
           
        }
