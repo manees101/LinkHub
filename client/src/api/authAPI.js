@@ -4,7 +4,7 @@ const authAPI=axios.create()
 authAPI.login=async({userData})=>{
     try
     {
-    
+    console.log(userData)
        const result=await axios.get(`/api/v1/auth/login?username=${userData.username}&password=${userData.password}`,)
        document.cookie=`token=${result.data.token}`
        return result.data

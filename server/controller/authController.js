@@ -53,7 +53,7 @@ const login=async(req,res)=>{
               }
             else
             {
-              res.status(401).json({success:false,msg:"Password does not match"})
+              res.status(401).json({success:false,msg:"Password does not match",data:{password,username}})
             }
             }
            else
