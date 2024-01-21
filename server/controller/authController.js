@@ -39,7 +39,7 @@ const register=async(req,res)=>{
 //Login user
 const login=async(req,res)=>{
        try{
-          const {username,password}=req.query
+          const {username,password}=req.query.userData
          if(username && password)
          {
             const user=await User.findOne({username})
