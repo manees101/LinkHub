@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState,useEffect } from 'react'
 import img from "../assets/images/img1.png"
 import { faImage, faVideo, faLocationDot, faCalendarDays, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -19,7 +19,7 @@ function SharePost() {
     const [image, setImage] = useState(null)
     const [video, setVideo] = useState('')
     const [isClicked, setClicked] = useState(false)
-    
+    const [profileImg,setProfileImg]=useState(null)
     const onImageChange = (e) => {
         setVideo("")
         if (e.target.files && e.target.files[0]) {
@@ -58,12 +58,22 @@ function SharePost() {
         setDesc("")
         location.reload()
     }
+    const loadImage=async()=>{
+        if(userData.profileImage)
+        {
+          const img=await imageAPI.getImage(userData.profileImage)
+          setProfileImg(img.href)
+        }
+   }
+   useEffect(()=>{
+       loadImage()
+   })
     return (
         <div className=' w-full h-full' >
             <div className='w-full h-36 bg-white flex flex-col items-center justify-center gap-2 rounded-lg'>
                 <div className=' w-full h-3/5 flex justify-center items-center'>
                     <div className=' w-1/6 h-full flex items-center justify-center'>
-                        <img src={img} alt="" className=' w-12' />
+                        <img src={profileImg ? profileImg : img} alt="profile_img" className=' w-12 h-12 rounded-full' />
                     </div>
                     <div className=' w-9/12 h-full flex items-center'>
                         <input type="text" name="share" required value={desc} onChange={(e) => setDesc(e.currentTarget.value)} placeholder='What is happening ?' className=' bg-slate-200 h-1/2 w-full p-4 rounded-xl' />
